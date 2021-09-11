@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "POST";
+}
+
+
+@{
+    <form method="post" enctype="application/x-www-form-urlencoded">
+        <h1>Добавить ответ</h1>
+
+        <p>Номер вопроса</p>
+        <p><input type="text" name="questionNumber" value=""/></p>
+
+        <p>Имя участника</p>
+        <p><input type="text" name="sender" value=""/></p>
+
+        <p>Ответ</p>
+        <p><input type="text" name="text" value=""/></p>
+
+        <p><input type="submit"></p>
+    </form>
+}
