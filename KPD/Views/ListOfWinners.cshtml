@@ -1,0 +1,18 @@
+﻿@model KPD.ViewModels.ListOfWinnersViewModel
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+
+@{
+    <h1>Победители:</h1>
+    <ol>
+        @foreach (var winner in Model.contestants)
+        {
+            <li>@winner.Nickname<br />@winner.Answer</li>
+        }
+
+    </ol>
+}
