@@ -22,7 +22,7 @@ namespace KPD.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetMainPage(string button)
+        public async Task<IActionResult> GetMainPage()
         {
             return View("~/Views/MainPage.cshtml");
         }
@@ -90,12 +90,15 @@ namespace KPD.Controllers
         //    return View("~/Views/Get.cshtml");
         //}
 
-
         [HttpGet]  
         [Route("CheckResult")]
         public async Task<IActionResult> CheckResult(string password, int questionNumber)
         {
-            if (password == null || questionNumber == default)
+            if (!db.Questions.Any())
+            {
+                return Forbid("No questions added");
+            }
+            if (password == null || questionNumber == default || questionNumber > db.Questions.OrderBy(p => p.Id).LastOrDefault().Id)
             {
                 return View("~/Views/Get.cshtml");
             }
@@ -116,6 +119,34 @@ namespace KPD.Controllers
             {
                 return Forbid("Wrong password");
             }
+
+        }
+
+        [HttpGet]
+        [Route("GetListOfWinners")]
+        public async Task<IActionResult> GetListOfWinners(string password, int questionNumber)
+        {
+            if (!db.Questions.Any())
+            {
+                return Forbid("No questions added");
+            }
+            if (password == null || questionNumber == default || questionNumber > db.Questions.OrderBy(p => p.Id).LastOrDefault().Id)
+            {
+                return View("~/Views/Get.cshtml");
+            }
+            if (password == "qweqwe")
+            {
+                var winners = new List<Contestant>();
+                foreach (var contestant in db.Contestants)
+                {
+                    if (contestant.Answer == db.Questions.Find(questionNumber).CorrectAnswer)
+                    {
+                        winners.Add(contestant);
+                    }
+                }
+                return View("~/Views/ListOfWinners.cshtml", new ListOfWinnersViewModel() { contestants = winners });
+            }
+            return StatusCode(500);
         }
     }
 }
