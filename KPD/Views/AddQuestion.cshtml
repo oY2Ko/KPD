@@ -2,13 +2,89 @@
 
 @{
     <form method="post">
-        <h1>Добавить вопрос</h1>
-        <label for="Event">Мероприятие</label>
-        <p><input type="text" name="Event" value="" /></p>
-        <label for="text">Текст вопроса</label>
-        <p><input type="text" name="text" value="" /></p>
-        <label for="correctAnswer">Правильный ответ</label>
-        <p><input type="text" name="correctAnswer" value="" /></p>
-        <p><input type="submit"/></p>
+        <h1>  Добавить вопрос</h1>
+        <label class="text" for="Event">Мероприятие</label>
+        <p><input type="text"  class="Input-Text" name="Event" value="" /></p>
+        <label class="text" for="text">Текст вопроса</label>
+        <p> <input type="text" class="Input-Text" name="text" value="" /></p>
+        <label class="text" for="correctAnswer">Правильный ответ</label>
+        <p><input type="text" class="Input-Text" name="correctAnswer" value="" /></p>
+        <input id="Input-Submit" type="submit"/>
     </form>
 }
+
+<style>
+    input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 30px #393E46 inset;
+    }
+    .Input-Text {
+        border: 1px solid #4ECCA3; /*цвет рамки */
+        border-radius: 5px; /*закругление углов (общее) */
+        -webkit-border-radius: 5px; /*закругление углов (Google Chrome)*/
+        -moz-border-radius: 5px; /*закругление углов (FireFox) */
+        -khtml-border-radius: 5px; /*закругление углов (Safari) */
+        background: #393E46 !important; /*желательно прописывать, так как в Chrome при сохранных данных оно может быть желтым*/
+        outline: none; /*удаляет обводку в браузерах хром(желтая) и сафари(синяя) */
+        height: 24px; /*высота на свое усмотрение*/
+        /*width: 120px;*/ /*ширина на свое усмотрение*/
+        color: #F2F2F2 !important; /*цвет шрифта в обычном состоянии*/
+        font-size: 16px; /*Размер шрифта*/
+        font-family: 'Times New Roman'; /*Стиль шрифта*/
+        text-align: center;
+        background-color: #393E46 !important;
+        padding: 10px;
+        text-align: center;
+        margin-left: 9%;
+        padding: 10px;
+        width: 200px;
+        height: 30px;
+    }
+
+    #Input-Submit {
+        border: 1px solid #4ECCA3; /*цвет рамки */
+        border-radius: 5px; /*закругление углов (общее) */
+        -webkit-border-radius: 5px; /*закругление углов (Google Chrome)*/
+        -moz-border-radius: 5px; /*закругление углов (FireFox) */
+        -khtml-border-radius: 5px; /*закругление углов (Safari) */
+        background: #393E46 !important; /*желательно прописывать, так как в Chrome при сохранных данных оно может быть желтым*/
+        outline: none; /*удаляет обводку в браузерах хром(желтая) и сафари(синяя) */
+        height: 24px; /*высота на свое усмотрение*/
+        width: 120px; /*ширина на свое усмотрение*/
+        color: #F2F2F2; /*цвет шрифта в обычном состоянии*/
+        font-size: 11px; /*Размер шрифта*/
+        font-family: Tahoma; /*Стиль шрифта*/
+        text-align:center;
+        margin-left:25%;
+
+    }
+    body {
+        background: #232931;
+    }
+
+    form {
+        padding: 20px;
+        background: #393E46;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+    }
+    h1 {
+        color: #4ECCA3;
+    }
+    .text {
+        color: #F2F2F2;
+    }
+
+
+    a {
+        color: #F2F2F2;
+        padding: 5px;
+        text-decoration: none;
+        font-family: 'Times New Roman';
+        font-size: 30px;
+    }
+</style>
